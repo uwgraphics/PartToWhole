@@ -4,6 +4,5 @@ The code and data repository for Anchoring and Alignment: Data Factors in Part-t
 ## Contents
 
 * `models.ipynb`: Modelling the results with GLMMs
-* `generateConditions.ipynb`: Stratified random sampling from the space of conditions
-* `generateStimuli.ipynb`: Generate the stimuli from the set of conditions
+* `generateStimuli.ipynb`: Stratified random sampling generation of stimuli
 * `createChart.js`: generate the svg charts for each stimuli using D3.js
