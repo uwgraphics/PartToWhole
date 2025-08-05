@@ -7,15 +7,31 @@ on:
   pull_request:
 
 jobs:
-  build-latex:
+  publish:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Upload PDF
-        uses: actions/upload-artifact@v4
+      # Prepare Pages content (just the PDF)
+      - name: Prepare site content
+        run: |
+          mkdir -p site
+          cp pdf/PartWhole-Preprint.pdf site/
+
+      # Upload content as pages artifact
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: compiled-pdf
-          path: pdf/PartWhole-Preprint.pdf
+          path: site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: publish
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
