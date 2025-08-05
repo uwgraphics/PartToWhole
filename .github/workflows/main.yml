@@ -5,6 +5,11 @@ on:
     branches:
       - main
   pull_request:
+    
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   publish:
@@ -13,13 +18,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Prepare Pages content (just the PDF)
       - name: Prepare site content
         run: |
           mkdir -p site
           cp pdf/PartWhole-Preprint.pdf site/
 
-      # Upload content as pages artifact
       - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
