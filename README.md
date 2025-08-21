@@ -2,6 +2,8 @@
 ## Code and Data Repository
 This repository contains the code and data for the paper [**Anchoring and Alignment: Data Factors in Part-to-Whole Visualization**](https://arxiv.org/abs/2508.01881). See also the [preprint](https://pages.graphics.cs.wisc.edu/PartToWhole/PartWhole-Preprint.pdf), the [supplementary document](pdf/supplementaryDocument.pdf) and the [preregistration](https://osf.io/e36au/).
 
+![Teaser Figure](https://github.com/uwgraphics/PartToWhole/blob/main/preprint/teaserFigure.png)
+
 ### Abstract
 
 We explore the effects of data and design considerations through the example case of part-to-whole data relationships.
