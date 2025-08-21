@@ -1,6 +1,6 @@
 # Anchoring and Alignment: Data Factors in Part-to-Whole Visualization
 ## Code and Data Repository
-This repository contains the code and data for the paper **Anchoring and Alignment: Data Factors in Part-to-Whole Visualization**. It contains all the code and data needed to replicate the experiment along with the [preprint](pdf/25-VisShort-PartWhole-Preprint.pdf), [supplementary document](pdf/supplementaryDocument.pdf) and the [preregistration](https://osf.io/e36au/).
+This repository contains the code and data for the paper [**Anchoring and Alignment: Data Factors in Part-to-Whole Visualization**](https://arxiv.org/abs/2508.01881). It contains all the code and data needed to replicate the experiment along with the [preprint](pdf/25-VisShort-PartWhole-Preprint.pdf), [supplementary document](pdf/supplementaryDocument.pdf) and the [preregistration](https://osf.io/e36au/).
 
 ### Abstract
 
