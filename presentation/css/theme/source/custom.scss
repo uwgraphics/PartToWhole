@@ -1,0 +1,173 @@
+/**
+ * CSS theme for presentation
+ */
+
+// Default mixins and settings -------------------------------------------------
+@use "sass:color";
+@import "../template/mixins";
+@import "../template/settings";
+
+// Include fonts ---------------------------------------------------------------
+@font-face { // Display
+    font-family: "Libertinus Display";  
+    src: url("../../fonts/libertinus/LibertinusSerifDisplay-Regular.woff2") format("woff2");
+    font-weight: 400; 
+    font-style: normal;
+}
+@font-face { // Regular Serif
+    font-family: "Libertinus Serif";    
+    src: url("../../fonts/libertinus/LibertinusSerif-Regular.woff2") format("woff2");
+    font-weight: 400; 
+    font-style: normal; 
+}
+@font-face { // Italic Serif
+    font-family: "Libertinus Serif";
+    src: url("../../fonts/libertinus/LibertinusSerif-Italic.woff2") format("woff2");
+    font-weight: 400; 
+    font-style: italic;
+}
+@font-face { // Bold Serif
+    font-family: "Libertinus Serif";
+    src: url("../../fonts/libertinus/LibertinusSerif-Bold.woff2") format("woff2");
+    font-weight: 700; 
+    font-style: normal; 
+}
+@font-face { // Bold Italic Serif
+  font-family: "Libertinus Serif";
+  src: url("../../fonts/libertinus/LibertinusSerif-BoldItalic.woff2") format("woff2");
+  font-weight: 700; 
+  font-style: italic;
+}
+@font-face { // Regular Sans-serif
+  font-family: "Libertinus Sans";
+  src: url("../../fonts/libertinus/LibertinusSans-Regular.woff2") format("woff2");
+  font-weight: 400; 
+  font-style: normal; 
+}
+@font-face { // Italic Sans-serif
+  font-family: "Libertinus Sans";
+  src: url("../../fonts/libertinus/LibertinusSans-Italic.woff2") format("woff2");
+  font-weight: 400; 
+  font-style: italic;
+}
+@font-face { // Bold Sans-serif
+  font-family: "Libertinus Sans";
+  src: url("../../fonts/libertinus/LibertinusSans-Bold.woff2") format("woff2");
+  font-weight: 700; 
+  font-style: normal;
+}
+@font-face { // Bold Italic Sans-serif
+  font-family: "Libertinus Sans";
+  src: url("../../fonts/libertinus/LibertinusSans-BoldItalic.woff2") format("woff2");
+  font-weight: 700; 
+  font-style: italic;
+}
+
+$backgroundColor: #ffffff;
+
+$mainColor: #222222;
+$headingColor: #222222;
+
+$mainFontSize: 12px;
+$mainFont: "Libertinus Sans", sans-serif;
+$blockMargin: 0.35em;
+
+$headingFont: "Libertinus Serif", serif;
+$headingLineHeight: 0.8;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: normal;
+$headingFontWeight: 700;
+
+$linkColor: #000000;
+$linkColorHover: color.scale( $linkColor, $lightness: 15% );
+$selectionBackgroundColor: color.scale( $linkColor, $lightness: 25% );
+
+$heading1Size: 3.5em;
+$heading2Size: 3em;
+$heading3Size: 2.2em;
+$heading4Size: 1em;
+
+$overlayElementBgColor: 0, 0, 0;
+$overlayElementFgColor: 240, 240, 240;
+
+// Change text colors against dark slide backgrounds
+@include dark-bg-text-color(#fff);
+
+// Theme template ------------------------------
+@import "../template/theme";
+
+/* Body copy size (≈ Keynote 44pt ≈ 58.67px) */
+.reveal p,
+.reveal li {
+  font-size: 18px;   /* 44pt at 96dpi */
+  line-height: 1.5;     /* adjust to taste */
+}
+
+.reveal li {
+	padding: 0.3em;
+}
+
+.reveal .slides > section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	padding: 3em;
+	box-sizing: border-box;
+}
+
+.reveal .slides section > object {
+	display: flex;
+	width: 70%;
+	height: auto;
+	margin: 2.5em auto;
+}
+
+.reveal .slides section > object.results {
+  width: 20%;
+}
+
+#title-slide  > object { 
+	width: 75%;
+}
+#rounding-slide > object { 
+	width: 60%; 
+}
+
+.pies {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+	gap: .8rem;
+}
+
+.charts {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    margin: 3em auto;
+	gap: 1.5rem; 
+}
+
+.reveal .slides > section.left {
+	align-items: flex-start;
+	text-align: left;
+}
+
+// .reveal::after {
+//     content: "";
+//     position: fixed;
+//     inset: 50% auto auto 50%;
+//     transform: translate(-50%, -50%);
+//     width: 1600px; 
+//     height: 900px;
+//     outline: 1px dashed rgba(0,0,0,.25);
+//     pointer-events: none;
+//     z-index: 9999;
+// }

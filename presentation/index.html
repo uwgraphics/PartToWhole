@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Anchoring and Alignment: Data Factors in Part-to-Whole Visualization</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/custom.css">
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section class="center" id="title-slide">
+					<h1><b>Anchoring and Alignment:</b></h1>
+					<h2>Data Factors in Part-to-Whole Visualization</h2>
+					<object data="svgs/teaserFigureNoLabel.svg"></object>
+					<p>Connor Bailey and Michael Gleicher</p>
+					<p>University of Wisconsin - Madison</p>
+				</section>
+
+				<section class="left" id="chart-slide">
+					<h2>Part-to-Whole Visualization</h2>
+					<div class="charts">
+						<div class="pies">
+							<div class="vis" id="pieChartDiv1"></div>
+							<div class="vis" id="pieChartDiv2"></div>
+						</div>
+						<div class="bars">
+							<div class="vis" id="barChartDiv1"></div>
+							<div class="vis" id="barChartDiv2"></div>
+						</div>
+					</div>
+					<ul>
+						<li>Explore the effects of data, design, and behavior on performance in the example case of <em>part-to-whole data relationships</em>.</li>
+						<li>Pie charts and stacked bar charts with 7 parts where the viewer <em>estimates the value</em> of a highlighted part.</li>
+						<li>Focus on the effects of <em>two perceptual mechanisms</em> on viewers ability to in these charts.</li>
+					</ul>
+				</section>
+
+				<section class="left" id="anchoring-slide">
+					<h2>Anchor Values</h2>
+					<div class="charts">
+						<div class="pies">
+							<div class="vis" id="pieAnchorDiv1"></div>
+							<div class="vis" id="pieAnchorDiv2"></div>
+						</div>
+						<div class="bars">
+							<div class="vis" id="barAnchorDiv1"></div>
+							<div class="vis" id="barAnchorDiv2"></div>
+						</div>
+					</div>
+					<ul>
+						<li>Recognizable shapes could help viewers estimate values more quickly and accurately.</li>
+						<li>Data values at 25%, and 50% are particularly salient and expect an anchoring effect based on these reference values.</li>
+						<li>We apply scale markers at 25% increments in both chart types to simplify the anchor effect and make the chart types comparable.</li>
+					</ul>
+				</section>
+
+				<section class="left" id="alignment-slide">
+					<h2>Alignment Positions</h2>
+					<div class="charts">
+						<div class="pies">
+							<div class="vis" id="pieAlignDiv1"></div>
+							<div class="vis" id="pieAlignDiv2"></div>
+						</div>
+						<div class="bars">
+							<div class="vis" id="barAlignDiv1"></div>
+							<div class="vis" id="barAlignDiv2"></div>
+						</div>
+					</div>
+					<ul>
+						<li>The start or end of a shape aligning with a scale marker may similarly help viewers estimate values more quickly or accurately.</li>
+						<li>We consider the case of alignment where either the beginning or end of a part aligns with the 0%, 25%, 50%, 75%, or 100% marker on the chart.</li>
+					</ul>
+				</section>
+
+				<section class="left" id="alHyp-slide">
+					<h2>Alignment Hypotheses</h2>
+					<div class="charts">
+						<div class="pies">
+							<div class="vis" id="pieAlHDiv1"></div>
+							<div class="vis" id="pieAlHDiv2"></div>
+						</div>
+						<div class="bars">
+							<div class="vis" id="barAlHDiv1"></div>
+							<div class="vis" id="barAlHDiv2"></div>
+						</div>
+					</div>
+					$$
+						\begin{aligned} 
+							\mathsf{H}^\text{accuracy}_\text{chart} &\quad:& 
+							\lvert\text{error}\rvert_\text{aligned} &\quad<& 
+							\lvert\text{error}\rvert_\text{near-aligned}
+							\\\\
+							\mathsf{H}^\text{speed}_\text{chart} &\quad:& 
+							\text{time}_\text{aligned}  &\quad<& 
+							\text{time}_\text{near-aligned}
+						\end{aligned}
+					$$
+					
+					<br>
+
+					<p>We expect estimation of aligned values to be quicker and more accurate than non-aligned values.</p>
+				</section>
+
+				<section data-markdown class="left">
+					<textarea data-template>
+					## Alignment Distance Hypotheses
+					<div class="charts">
+						<div class="pies">
+							<div class="vis" id="pieAlDHDiv1"></div>
+							<div class="vis" id="pieAlDHDiv2"></div>
+							<div class="vis" id="pieAlDHDiv3"></div>
+						</div>
+						<div class="bars">
+							<div class="vis" id="barAlDHDiv1"></div>
+							<div class="vis" id="barAlDHDiv2"></div>
+							<div class="vis" id="barAlDHDiv3"></div>
+						</div>
+					</div>
+					$$
+						\begin{aligned} 
+							\mathsf{H}^\text{accuracy}_\text{alignment distance} &\quad:& 
+							\lvert\text{error}\rvert_\text{aligned} &\quad<& 
+							\lvert\text{error}\rvert_\text{near-aligned} &\quad<& \lvert\text{error}\rvert_\text{far-aligned} 
+							\\\\
+							\mathsf{H}^\text{speed}_\text{alignment distance} &\quad:& 
+							\text{time}_\text{aligned}  &\quad<& 
+							\text{time}_\text{near-aligned}  &\quad<& 
+							\text{time}_\text{far-aligned}
+						\end{aligned}
+					$$
+
+					<br>
+
+					<p>We expect aligned values to be quicker and more accurate to estimate than near-aligned values and those to be quicker and more accurate than non-aligned values.</p>
+					</textarea>
+				</section>
+
+				<section data-markdown class="left">
+					<textarea data-template>
+					## Anchor Hypotheses
+					<div class="charts">
+						<div class="pies">
+							<div class="vis" id="pieAnHDiv1"></div>
+							<div class="vis" id="pieAnHDiv2"></div>
+						</div>
+						<div class="bars">
+							<div class="vis" id="barAnHDiv1"></div>
+							<div class="vis" id="barAnHDiv2"></div>
+						</div>
+					</div>
+					$$
+						\begin{aligned} 
+							\mathsf{H}^\text{accuracy}_\text{anchoring} &\quad:& 
+							\lvert\text{error}\rvert_\text{anchor} &\quad<& 
+							\lvert\text{error}\rvert_\text{non-anchor} 
+							\\\\
+							\mathsf{H}^\text{speed}_\text{anchoring} &\quad:& 
+							\text{time}_\text{anchor}  &\quad<& 
+							\text{time}_\text{non-anchor}
+						\end{aligned}
+					$$
+
+					<br>
+
+					<p>We expect estimation of anchor values to be quicker and more accurate than non-anchor values.</p>
+					</textarea>
+				</section>
+
+				<section data-markdown class="left">
+					<textarea data-template>
+					## Anchor Distance Hypotheses
+					<div class="charts">
+						<div class="pies">
+							<div class="vis" id="pieAnDHDiv1"></div>
+							<div class="vis" id="pieAnDHDiv2"></div>
+							<div class="vis" id="pieAnDHDiv3"></div>
+						</div>
+						<div class="bars">
+							<div class="vis" id="barAnDHDiv1"></div>
+							<div class="vis" id="barAnDHDiv2"></div>
+							<div class="vis" id="barAnDHDiv3"></div>
+						</div>
+					</div>
+					$$
+						\begin{aligned} 
+							\mathsf{H}^\text{accuracy}_\text{anchor distance} &\quad:& 
+							\lvert\text{error}\rvert_\text{anchor} &\quad<& 
+							\lvert\text{error}\rvert_\text{near-anchor} &\quad<& \lvert\text{error}\rvert_\text{far-anchor} 
+							\\\\
+							\mathsf{H}^\text{speed}_\text{anchor distance} &\quad:& 
+							\text{time}_\text{anchor}  &\quad<& 
+							\text{time}_\text{near-anchor}  &\quad<& 
+							\text{time}_\text{far-anchor}
+						\end{aligned}
+					$$
+
+					<br>
+
+					<p>We expect anchor values to be quicker and more accurate to estimate than near-anchor values and those to be quicker and more accurate than non-anchor values.</p>
+					</textarea>
+				</section>
+
+				<section class="left">
+					<h2>Experiment Design</h2>
+					<ul>
+						<li>We used a within-subjects, stratified randomized experimental design to measure performance across the large space of conditions</li>
+						<li>60 participants completed 96 questions stratified across conditions.</li>
+						<li><b>Pre-registration:</b> Experiment design and analysis was pre-registered on OSF</li>
+						<li><b>Exclusion criteria:</b> To limit the effects of outlier response times or inattentive participants participants were excluded with mean absolute error outside of two median absolute deviations from the median absolute error. Response times were clipped to two standard deviations from the median response time.</li>
+						<li><b>Measures:</b> We measured responses at integer values and computed absolute error of responses to correct values. Response time was measured from the moment the question was displayed to the moment the response was submitted.</li>
+					</ul>
+				</section>
+
+				<section data-markdown class="left">
+					<textarea data-template>
+					## Generalized Linear Mixed-effects Models
+
+					<ul>
+						<li>We modeled absolute error and response time with generalized linear mixed-effects models (GLMMs) in order to determine significant effects and test our hypotheses.</li>
+						<li>The models include random effects per participant to account for individual differences in responses.</li>
+						<li>To account for strong effects of rounding in participants estimating values, we will evaluate variables of the distance to the nearest 5%, and distance to the nearest 10% in our models.</li>
+					</ul>
+					</textarea>
+				</section>
+
+				<section data-markdown class="left">
+					<textarea data-template>
+					## Model
+					### Absolute Error
+					<br>
+
+					`absError ~ chart * anchor * aligned + round10 `
+
+					`+ (1 + anchor + aligned + chart + round10 | participant)`
+					
+					<br>
+
+					<p>We used a negative binomial distribution with a log link to model absolute error, as the absolute error is a discrete, non-negative, and non-normal variable. </p>
+
+					<br>
+
+					<table>
+						<thead>
+							<tr>
+							<th style="text-align:center;">Factor</th>
+							<th style="text-align:center;">$ \hat{\beta} $ Estimate</th>
+							<th style="text-align:center;">$ p $ value</th>
+							<th style="text-align:center;">Significant</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+							<td style="text-align:center;">Chart Type</td>
+							<td style="text-align:center;">$ \hat{\beta}=0.036388 $</td>
+							<td style="text-align:center;">$ p=0.2935 $</td>
+							<td style="text-align:center;">No</td>
+							</tr>
+							<tr>
+							<td style="text-align:center;">Anchoring</td>
+							<td style="text-align:center;">$ \hat{\beta}=0.656509 $</td>
+							<td style="text-align:center;">$ p&lt; 2e-16 $</td>
+							<td style="text-align:center;">Yes</td>
+							</tr>
+							<tr>
+							<td style="text-align:center;">Alignment</td>
+							<td style="text-align:center;">$ \hat{\beta}=0.361369 $</td>
+							<td style="text-align:center;">$ p&lt; 2e-16 $</td>
+							<td style="text-align:center;">Yes</td>
+							</tr>
+							<tr>
+							<td style="text-align:center;">Rounding by 10s</td>
+							<td style="text-align:center;">$ \hat{\beta}=0.023832 $</td>
+							<td style="text-align:center;">$ p=0.0350 $</td>
+							<td style="text-align:center;">Yes</td>
+							</tr>
+						</tbody>
+						</table>
+					</textarea>
+				</section>
+
+				<section data-markdown class="left">
+					<textarea data-template>
+					## Model
+					### Response Time
+					<br>
+
+					`responseTime ~ chart * anchor * aligned  `
+
+					`+ (1 + anchor + aligned + chart  | participant)`
+					
+					<br>
+
+					<p>We used a Gamma distribution with a log link for response time, as response time is a continuous, positive, and non-normal variable.</p>
+
+					<br>
+
+					</ul>
+					<table>
+						<thead>
+							<tr>
+							<th style="text-align:center;">Factor</th>
+							<th style="text-align:center;">$ \hat{\beta} $ Estimate</th>
+							<th style="text-align:center;">$ p $ value</th>
+							<th style="text-align:center;">Significant</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+							<td style="text-align:center;">Chart Type</td>
+							<td style="text-align:center;">$ \hat{\beta}=0.0008645 $</td>
+							<td style="text-align:center;">$ p=0.93788 $</td>
+							<td style="text-align:center;">No</td>
+							</tr>
+							<tr>
+							<td style="text-align:center;">Anchoring</td>
+							<td style="text-align:center;">$ \hat{\beta}=0.1137857 $</td>
+							<td style="text-align:center;">$ p&lt; 2e-16 $</td>
+							<td style="text-align:center;">Yes</td>
+							</tr>
+							<tr>
+							<td style="text-align:center;">Alignment</td>
+							<td style="text-align:center;">$ \hat{\beta}=0.0447381 $</td>
+							<td style="text-align:center;">$ p&lt; 2e-16 $</td>
+							<td style="text-align:center;">Yes</td>
+							</tr>
+						</tbody>
+						</table>
+					</textarea>
+				</section>
+
+				<section class="left">
+					<h2>Alignment Results</h2>
+					<object class="results" data="svgs/resultsFigureAlignment.svg"></object>
+					<p>We found a significant effect of alignment on both the speed and accuracy of estimating values in our results.</p>
+				</section>
+
+				<section class="left">
+					<h2>Anchor Results</h2>
+					<object class="results" data="svgs/resultsFigureAnchor.svg"></object>
+					<p>We found a significant effect of anchor values on both the speed and accuracy of estimating values in our results.</p>
+				</section>
+
+				<section class="left">
+					<h2>Chart Results</h2>
+					<object class="results" data="svgs/resultsFigureChart.svg"></object>
+					<p>We can not confirm any significant effect of chart type on the estimation performance in our results.</p>
+				</section>
+
+				<section class="left">
+					<h2>Interaction Results</h2>
+					<object data="svgs/resultsFigureInteraction.svg"></object>
+					<p>We did not find a significant interaction between chart type and alignment or anchoring in our results, but did find a significant interaction between anchoring and alignment.</p>
+				</section>
+
+				<section class="left">
+					<h2>Combined Results</h2>
+					<object data="svgs/combinedResults.svg"></object>
+				</section>
+
+				<section class="left" id="rounding-slide">
+					<h2>Rounding</h2>
+					<object data="svgs/responsesFigureRounding.svg"></object>
+					<p>The effects of rounding can be seen in the response rates of the study participants across the stimuli values.</p>
+				</section>
+
+				<section class="left" id="distance-slide">
+					<h2>Distance Effects</h2>
+					<object data="svgs/responsesFigureDistance.svg"></object>
+					<p>The anchor distance effect can be seen in the absolute error of the response values of the study participants across the stimuli values.</p>
+				</section>
+
+				<section class="left">
+					<h2>Discussion</h2>
+					<h3>Design Factors</h3>
+					<ul>
+						<li>Our results show the impact of design factors on task performance</li>
+						<li>Our results support the conventional wisdom recommending alignment when possible.</li>
+						<ul>
+							<li>The significance and size of the effect of alignment on the speed and accuracy of estimation show that more guidance, and stronger preferences toward alignment may be beneficial when designing part-to-whole charts.</li>
+							<li>i.e. not just preferring alignment of the top part in a pie chart but optimizing the layout to maximally align parts with scale markers</li>
+						</ul>
+					</ul>
+				</section>
+
+				<section class="left">
+					<h2>Discussion</h2>
+					<h3>Data Factors</h3>
+					<ul>
+						<li>Our results show the impact of data factors on task performance</li>
+						<li>Our results show that <emph>anchor</emph> and <emph>near-anchor</emph> values have significant effect on performance, supporting the task model where anchoring is a key mechanism.</li>
+						<ul>
+							<li>While designers typically can not and should not choose their data, the strength of these effects show that the data values should be considered during chart design. </li>
+							<li>Designers should know the limits of viewers' abilities especially for values far from anchors. For example, datasets of many small parts may be better presented by other chart types.</li>
+							<li>While data-dependent chart design may be difficult automatic chart generation and recommendation tools could help account for data factors.</li>
+						</ul>
+					</ul>
+				</section>
+
+				<section class="left">
+					<h2>Limitations</h2>
+					<h3>Part-to-Whole Charts</h3>
+					<ul>
+						<li>We are focused on the specific task of part-to-whole estimation in pie charts and stacked bar charts</li>
+						<ul>
+							<li>This basic task may be a step toward understanding these effects in more complex tasks involving memory or comparison</li>
+							<li>The data-dependent effects we observed may be similar in other chart types, possibly caused by other mechanisms</li>
+							<li>We identify these effects in at least one common case which could have implications in data collection/selection, and chart/experiment design.</li>
+						</ul>
+					</ul>
+				</section>
+
+				<section class="left">
+					<h2>Limitations</h2>
+					<h3>Additional Effects</h3>
+					<ul>
+						<li>We do not identify the source of the anchoring effect.</li>
+						<ul>
+							<li>We do not assess the importance of the implicit (shape-based) and explicit (scale-mark) anchors or how they may be influenced by scale marks</li>
+						</ul>
+						<li>We observed expected large individual differences between viewers and account for them in our modeling but do not explore their connection to the observed effects.</li>
+						<li>We accounted for observed rounding effects in our modeling but do not measure propensity for rounding or its interactions with other variables.</li>
+					</ul>
+				</section>
+
+				<section class="left">
+					<h2>Conclusions</h2>
+					<ul>
+						<li>Data values (data property), part positions (design choice), and rounding (viewer behavior) are related to the anchoring and alignment mechanisms resulting in a strong effect on estimation speed and accuracy.</li>
+						<li>This work serves as an example of measuring the effects of data and design factors related to particular perceptual mechanisms on task performance in one case.</li>
+						<li>Our approach of trying to understand data-dependent variance can lead to better understanding and guidelines for the design of data visualizations.</li>
+					</ul>
+				</section>
+
+			</div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+		<script src="./js/createCharts.js"></script>
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				transition: "none",
+				width: 800,
+				height: 450,
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+			});
+		</script>
+		<script src="./js/chartsControl.js"></script>
+	</body>
+</html>
