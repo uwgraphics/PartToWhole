@@ -22,7 +22,8 @@ jobs:
         run: |
           mkdir -p site
           cp pdf/PartWhole-Preprint.pdf site/
-
+          cp -R presentation site/
+          
       - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
