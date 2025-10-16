@@ -22,8 +22,15 @@ jobs:
         run: |
           mkdir -p site
           cp pdf/PartWhole-Preprint.pdf site/
+
+          npm init -y >/dev/null 2>&1
+          npm i reveal.js@5
+          mkdir -p site/presentation/dist site/presentation/plugin
+          cp -R node_modules/reveal.js/dist/* site/presentation/dist/
+          cp -R node_modules/reveal.js/plugin/* site/presentation/plugin/
+
           cp -R presentation site/
-          
+
       - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
