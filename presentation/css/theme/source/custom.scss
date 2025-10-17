@@ -5,38 +5,39 @@
 // Default mixins and settings -------------------------------------------------
 @use "sass:color";
 @use "template/mixins" as *;
-@use "template/settings" as settings with (
-	$backgroundColor: #ffffff,
-
-	$mainColor: #222222,
-	$headingColor: #222222,
-
-	$mainFontSize: 12px,
-	$mainFont: ("Libertinus Sans", sans-serif),
-	$blockMargin: 0.35em,
-
-	$headingFont: ("Libertinus Serif", serif),
-	$headingLineHeight: 0.8,
-	$headingTextShadow: none,
-	$headingLetterSpacing: normal,
-	$headingTextTransform: normal,
-	$headingFontWeight: 700,
-
-	$linkColor: #000000,
-	$selectionBackgroundColor: color.scale(#000000, $lightness: 25%),
-
-	$heading1Size: 3.5em,
-	$heading2Size: 3em,
-	$heading3Size: 2.2em,
-	$heading4Size: 1em,
-
-	$overlayElementBgColor: (0, 0, 0),
-	$overlayElementFgColor: (240, 240, 240)
-);
-
-// Theme template ------------------------------
-@use "template/theme";
+@use "template/settings" as *;
+@use "template/theme" as theme;
 @include theme.apply;
+
+:root {
+  --r-background-color: #ffffff;
+
+  --r-main-color: #222222;
+  --r-heading-color: #222222;
+
+  --r-main-font-size: 12px;
+  --r-main-font: "Libertinus Sans", sans-serif;
+  --r-block-margin: 0.35em;
+
+  --r-heading-font: "Libertinus Serif", serif;
+  --r-heading-line-height: 0.8;
+  /* text-shadow/letter-spacing/transform are regular CSS, handled by template mixins */
+
+  --r-link-color: #000000;
+  /* Reveal computes hover; optional:
+     --r-link-color-hover: #1a1a1a; */
+  --r-selection-background-color: #{color.scale(#000000, $lightness: 25%)};
+
+  --r-heading1-size: 3.5em;
+  --r-heading2-size: 3em;
+  --r-heading3-size: 2.2em;
+  --r-heading4-size: 1em;
+
+  /* These are RGB tuples used as rgba(var(--r-overlay-element-*-color), alpha) */
+  --r-overlay-element-bg-color: 0, 0, 0;
+  --r-overlay-element-fg-color: 240, 240, 240;
+}
+
 @include dark-bg-text-color(#fff);
 
 // Include fonts ---------------------------------------------------------------
