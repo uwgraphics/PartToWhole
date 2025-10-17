@@ -30,8 +30,6 @@
   --r-overlay-element-fg-color: 240, 240, 240;
 }
 
-@include dark-bg-text-color(#fff);
-
 // Include fonts ---------------------------------------------------------------
 @font-face { // Display
     font-family: "Libertinus Display";  
