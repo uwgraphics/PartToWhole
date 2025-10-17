@@ -33,11 +33,10 @@ jobs:
           cp -R node_modules/reveal.js/dist/* site/presentation/dist/
           cp -R node_modules/reveal.js/plugin/* site/presentation/plugin/
 
-          mkdir -p site/presentation/dist/theme
           npx sass \
             --style=expanded --no-source-map \
+            --load-path node_modules/reveal.js/css/theme/source \
             site/presentation/css/theme/source/custom.scss:site/presentation/dist/theme/custom.css
-
 
           cp pdf/PartWhole-Preprint.pdf site/
 

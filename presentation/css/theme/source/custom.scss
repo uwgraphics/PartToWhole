@@ -4,31 +4,8 @@
 
 // Default mixins and settings -------------------------------------------------
 @use "sass:color";
-
-:root {
-  --r-background-color: #ffffff;
-
-  --r-main-color: #222222;
-  --r-heading-color: #222222;
-
-  --r-main-font-size: 12px;
-  --r-main-font: "Libertinus Sans", sans-serif;
-  --r-block-margin: 0.35em;
-
-  --r-heading-font: "Libertinus Serif", serif;
-  --r-heading-line-height: 0.8;
-
-  --r-link-color: #000000;
-  --r-selection-background-color: #{color.scale(#000000, $lightness: 25%)};
-
-  --r-heading1-size: 3.5em;
-  --r-heading2-size: 3em;
-  --r-heading3-size: 2.2em;
-  --r-heading4-size: 1em;
-
-  --r-overlay-element-bg-color: 0, 0, 0;
-  --r-overlay-element-fg-color: 240, 240, 240;
-}
+@import "../template/mixins";
+@import "../template/settings";
 
 // Include fonts ---------------------------------------------------------------
 @font-face { // Display
@@ -85,6 +62,40 @@
   font-weight: 700; 
   font-style: italic;
 }
+
+$backgroundColor: #ffffff;
+
+$mainColor: #222222;
+$headingColor: #222222;
+
+$mainFontSize: 12px;
+$mainFont: "Libertinus Sans", sans-serif;
+$blockMargin: 0.35em;
+
+$headingFont: "Libertinus Serif", serif;
+$headingLineHeight: 0.8;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: normal;
+$headingFontWeight: 700;
+
+$linkColor: #000000;
+$linkColorHover: color.scale( $linkColor, $lightness: 15% );
+$selectionBackgroundColor: color.scale( $linkColor, $lightness: 25% );
+
+$heading1Size: 3.5em;
+$heading2Size: 3em;
+$heading3Size: 2.2em;
+$heading4Size: 1em;
+
+$overlayElementBgColor: 0, 0, 0;
+$overlayElementFgColor: 240, 240, 240;
+
+// Change text colors against dark slide backgrounds
+@include dark-bg-text-color(#fff);
+
+// Theme template ------------------------------
+@import "../template/theme";
 
 /* Body copy size (≈ Keynote 44pt ≈ 58.67px) */
 .reveal p,
