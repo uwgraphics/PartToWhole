@@ -4,8 +4,8 @@
 
 // Default mixins and settings -------------------------------------------------
 @use "sass:color";
-@import "../template/mixins";
-@import "../template/settings";
+@use "template/mixins" as *;
+@use "template/settings" as *;
 
 // Include fonts ---------------------------------------------------------------
 @font-face { // Display
@@ -95,7 +95,8 @@ $overlayElementFgColor: 240, 240, 240;
 @include dark-bg-text-color(#fff);
 
 // Theme template ------------------------------
-@import "../template/theme";
+@use "template/theme";
+@include theme.apply;
 
 /* Body copy size (≈ Keynote 44pt ≈ 58.67px) */
 .reveal p,

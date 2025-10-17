@@ -20,27 +20,27 @@ jobs:
 
       - name: Prepare site content
         run: |
-          set -e
+          set -eset -e
           rm -rf site
           mkdir -p site/presentation
 
-          # 1) Copy YOUR deck first (index.html, css/, fonts/, js/, svgs/, maybe dist/theme/custom.css, etc.)
           cp -R presentation/* site/presentation/
 
-          # 2) Add Reveal runtime assets from node_modules (dist + plugin)
           npm init -y >/dev/null 2>&1
-          npm i reveal.js@5
+          npm i reveal.js@5 sass
+
           mkdir -p site/presentation/dist site/presentation/plugin
           cp -R node_modules/reveal.js/dist/* site/presentation/dist/
           cp -R node_modules/reveal.js/plugin/* site/presentation/plugin/
 
-          # 3) Ensure your custom theme overrides the stock theme (copy it LAST)
-          if [ -f presentation/dist/theme/custom.css ]; then
-            mkdir -p site/presentation/dist/theme
-            cp presentation/dist/theme/custom.css site/presentation/dist/theme/custom.css
-          fi
+          mkdir -p site/presentation/dist/theme
+          npx sass \
+            --style=expanded --no-source-map \
+            --load-path node_modules/reveal.js/css/theme \
+            --load-path node_modules/reveal.js/css/theme/source \
+            --load-path site/presentation/css/theme/source \
+            site/presentation/css/theme/source/custom.scss:site/presentation/dist/theme/custom.css
 
-          # 4) PDF
           cp pdf/PartWhole-Preprint.pdf site/
 
       - name: Upload artifact for GitHub Pages
