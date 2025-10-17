@@ -20,7 +20,7 @@ jobs:
 
       - name: Prepare site content
         run: |
-          set -eset -e
+          set -e
           rm -rf site
           mkdir -p site/presentation
 
