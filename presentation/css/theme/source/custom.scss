@@ -7,6 +7,42 @@
 @use "template/mixins" as *;
 @use "template/settings" as *;
 
+$backgroundColor: #ffffff;
+
+$mainColor: #222222;
+$headingColor: #222222;
+
+$mainFontSize: 12px;
+$mainFont: "Libertinus Sans", sans-serif;
+$blockMargin: 0.35em;
+
+$headingFont: "Libertinus Serif", serif;
+$headingLineHeight: 0.8;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: normal;
+$headingFontWeight: 700;
+
+$linkColor: #000000;
+$linkColorHover: color.scale( $linkColor, $lightness: 15% );
+$selectionBackgroundColor: color.scale( $linkColor, $lightness: 25% );
+
+$heading1Size: 3.5em;
+$heading2Size: 3em;
+$heading3Size: 2.2em;
+$heading4Size: 1em;
+
+$overlayElementBgColor: 0, 0, 0;
+$overlayElementFgColor: 240, 240, 240;
+
+// Change text colors against dark slide backgrounds
+@include dark-bg-text-color(#fff);
+
+// Theme template ------------------------------
+@use "template/theme";
+@include theme.apply;
+
+
 // Include fonts ---------------------------------------------------------------
 @font-face { // Display
     font-family: "Libertinus Display";  
@@ -62,41 +98,6 @@
   font-weight: 700; 
   font-style: italic;
 }
-
-$backgroundColor: #ffffff;
-
-$mainColor: #222222;
-$headingColor: #222222;
-
-$mainFontSize: 12px;
-$mainFont: "Libertinus Sans", sans-serif;
-$blockMargin: 0.35em;
-
-$headingFont: "Libertinus Serif", serif;
-$headingLineHeight: 0.8;
-$headingTextShadow: none;
-$headingLetterSpacing: normal;
-$headingTextTransform: normal;
-$headingFontWeight: 700;
-
-$linkColor: #000000;
-$linkColorHover: color.scale( $linkColor, $lightness: 15% );
-$selectionBackgroundColor: color.scale( $linkColor, $lightness: 25% );
-
-$heading1Size: 3.5em;
-$heading2Size: 3em;
-$heading3Size: 2.2em;
-$heading4Size: 1em;
-
-$overlayElementBgColor: 0, 0, 0;
-$overlayElementFgColor: 240, 240, 240;
-
-// Change text colors against dark slide backgrounds
-@include dark-bg-text-color(#fff);
-
-// Theme template ------------------------------
-@use "template/theme";
-@include theme.apply;
 
 /* Body copy size (≈ Keynote 44pt ≈ 58.67px) */
 .reveal p,
