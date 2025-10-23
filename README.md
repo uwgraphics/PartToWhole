@@ -20,7 +20,7 @@ This demonstrates the need for informed visualization design based around how da
     * [`generateStimuli.ipynb`](notebooks/generateStimuli.ipynb): Stratified random sampling generation of stimuli
 
 * #### Chart Generation
-    * [`createChart.js`](presentation/js/createChart.js): Generate the svg charts for each stimulus using D3.js
+    * [`createChart.js`](presentation/js/createCharts.js): Generate the svg charts for each stimulus using D3.js
 
 * #### Data
     * [`results.csv`](data/results.csv): Participant response results of the experiment
