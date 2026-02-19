@@ -1,6 +1,6 @@
 # Anchoring and Alignment: Data Factors in Part-to-Whole Visualization
 ## Code and Data Repository
-This repository contains the code and data for the paper [**Anchoring and Alignment: Data Factors in Part-to-Whole Visualization**](https://arxiv.org/abs/2508.01881). See also the [preprint](https://pages.graphics.cs.wisc.edu/PartToWhole/PartWhole-Preprint.pdf), the [supplementary document](pdf/supplementaryDocument.pdf) the [preregistration](https://osf.io/e36au/), and the [talk](https://youtu.be/FOAj5-NjQho).
+This repository contains the code and data for the paper [**Anchoring and Alignment: Data Factors in Part-to-Whole Visualization**]([https://arxiv.org/abs/2508.01881](https://ieeexplore-ieee-org.ezproxy.library.wisc.edu/document/11298778/)). See also the [preprint](https://pages.graphics.cs.wisc.edu/PartToWhole/PartWhole-Preprint.pdf), the [supplementary document](pdf/supplementaryDocument.pdf) the [preregistration](https://osf.io/e36au/), and the [talk](https://youtu.be/FOAj5-NjQho).
 
 ![Teaser Figure](https://github.com/uwgraphics/PartToWhole/blob/main/preprint/teaserFigure.png)
 Fig. 1: Ⓐ A pair of example stimuli from each combination of pie and stacked bar charts, aligned (segment starts/ends at a marker) and unaligned, and anchor (segment has a recognizable size) and non-anchor values. Ⓑ Predicted mean absolute error and response time to 95% CI. Anchor values and alignment positions show significant performance improvements in estimating values for both chart types. Results between conditions are significant (p < 0.05) except where noted.
